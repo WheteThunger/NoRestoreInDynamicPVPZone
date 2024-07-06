@@ -2,7 +2,7 @@
 
 namespace Oxide.Plugins;
 
-[Info("No Restore In Dynamic PVP Zone", "WhiteThunder", "1.0.0")]
+[Info("No Restore In Dynamic PVP Zone", "WhiteThunder", "1.0.1")]
 [Description("Prevents player inventories from being restored after dying in a Dynamic PVP zone.")]
 internal class NoRestoreInDynamicPVPZone : CovalencePlugin
 {
@@ -24,7 +24,7 @@ internal class NoRestoreInDynamicPVPZone : CovalencePlugin
             return null;
         }
 
-        if (DynamicPVP?.Call("IsPlayerInPVPDelay", player.userID) is true)
+        if (DynamicPVP?.Call("IsPlayerInPVPDelay", (ulong)player.userID) is true)
         {
             // Player recently exited a PVP zone and can still be killed.
             return False;
